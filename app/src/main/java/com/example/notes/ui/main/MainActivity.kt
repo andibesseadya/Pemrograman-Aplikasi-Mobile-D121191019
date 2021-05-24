@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
+
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -62,6 +65,7 @@ class MainActivity : AppCompatActivity() {
             noteViewModel.insertNote(
                 Note(note = editText.text.toString())
             )
+            Toast.makeText(this, "Added Succesfully!", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
         }
 
@@ -70,6 +74,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         alert.show()
+
     }
 
     private fun showAlertMenu(note: Note) {
@@ -85,6 +90,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 1 -> {
                     noteViewModel.deleteNote(note)
+                    Toast.makeText(this, "Delete Succesfully!", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -103,6 +109,7 @@ class MainActivity : AppCompatActivity() {
         alert.setPositiveButton("Update") { dialog, _ ->
             note.note = editText.text.toString()
             noteViewModel.updateNote(note)
+            Toast.makeText(this, "Updated Succesfully!", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
         }
 
@@ -112,4 +119,5 @@ class MainActivity : AppCompatActivity() {
 
         alert.show()
     }
+
 }
