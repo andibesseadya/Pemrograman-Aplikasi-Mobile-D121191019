@@ -2,7 +2,7 @@ package com.example.notes.database.note
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import com.example.notes.AppDatabase
+import com.example.notes.database.AppDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
