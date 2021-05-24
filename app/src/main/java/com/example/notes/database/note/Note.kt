@@ -1,4 +1,4 @@
-package com.example.notes
+package com.example.notes.database.note
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
